@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn561l1tgj1p1"]
+
+[ext_resource type="Script" path="res://节点/场景/createNPC.gd" id="1_7jiby"]
+
+[node name="npcCreater" type="Node"]
+script = ExtResource("1_7jiby")

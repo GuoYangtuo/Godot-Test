@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://b43vq3nx58fla"]
+
+[ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_aht5v"]
+[ext_resource type="PackedScene" uid="uid://xvirvni0l0oy" path="res://addons/srcoder_fps_controller/mouse_lock.tscn" id="2_2c3sb"]
+[ext_resource type="PackedScene" uid="uid://b718b11d8fw35" path="res://节点/游戏对象/静态物体/测试-砖块.tscn" id="3_phldq"]
+[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://addons/customizableCrosshair/crosshair/crosshair.tscn" id="4_ceota"]
+[ext_resource type="PackedScene" uid="uid://gulrl1lche5e" path="res://节点/游戏对象/生物/npc.tscn" id="5_flkqv"]
+[ext_resource type="Script" path="res://节点/场景/aiRequest.gd" id="6_0f38h"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_aht5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.167436, 1.81159, 2.38318)
+
+[node name="MouseLock" parent="Player" instance=ExtResource("2_2c3sb")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.879083, -0.225477, 0.419967, 0, 0.881048, 0.473028, -0.476668, -0.415831, 0.774514, 0, 3.9736, 0)
+
+[node name="brick" parent="." instance=ExtResource("3_phldq")]
+
+[node name="Crosshair" parent="." instance=ExtResource("4_ceota")]
+
+[node name="npc" parent="." node_paths=PackedStringArray("httpRequest") groups=["npc"] instance=ExtResource("5_flkqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18488, 0)
+httpRequest = NodePath("../HTTPRequest")
+metadata/npcName = ""
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("6_0f38h")

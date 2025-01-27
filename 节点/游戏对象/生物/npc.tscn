@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://gulrl1lche5e"]
+
+[ext_resource type="Script" path="res://节点/游戏对象/生物/npc.gd" id="1_t0u2y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mpbg5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v76xb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8rb2n"]
+radius = 2.91
+
+[node name="npc" type="RigidBody3D"]
+script = ExtResource("1_t0u2y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_mpbg5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_v76xb")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_8rb2n")
