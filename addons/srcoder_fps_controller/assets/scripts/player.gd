@@ -102,62 +102,15 @@ func release_object():
 	if dragging_object:
 		dragging_object = null
 
-var operate_code = """
 var body_blood = {
-	"身体":100, "手臂":100, "头":10, "腿":100
+	"头":10,"身体":100, "手臂":100, "腿":100
 }
-var is_alive = true
 
-func 发送消息(args):# 消息内容: String
-	print(args[0])
+func 攻击(攻击位置: String, 攻击强度: int):
+	body_blood[攻击位置] -= 攻击强度
+	if (body_blood[攻击位置] <= 0):
+		pass
 
-func 攻击(args):# 攻击位置: String, 攻击强度: int
-	body_blood[args[0]] -= int(args[1])
-	if (body_blood[args[0]] <= 0):
-		print(args[0], "died")
-		is_alive = false
-
-func 检查生命状态(args):
-	if is_alive:
-		print("Player is alive")
-	else:
-		print("Player is dead")
-
-func 恢复生命值(args):# 恢复位置: String, 恢复强度: int
-	if is_alive:
-		body_blood[args[0]] += int(args[1])
-		if body_blood[args[0]] > 100:
-			body_blood[args[0]] = 100
-		print("Player's", args[0], "healed to", body_blood[args[0]])
-	else:
-		print("Player is dead, cannot heal")
-"""
-
-var body_blood = {
-	"身体":100, "手臂":100, "头":10, "腿":100
+var operatable_dict = {
+	"攻击(攻击位置: String, 攻击强度: int)":攻击
 }
-var is_alive = true
-
-func 发送消息(args):# 消息内容: String
-	print(args[0])
-
-func 攻击(args):# 攻击位置: String, 攻击强度: int
-	body_blood[args[0]] -= int(args[1])
-	if (body_blood[args[0]] <= 0):
-		print(args[0], "died")
-		is_alive = false
-
-func 检查生命状态(args):
-	if is_alive:
-		print("Player is alive")
-	else:
-		print("Player is dead")
-
-func 恢复生命值(args):# 恢复位置: String, 恢复强度: int
-	if is_alive:
-		body_blood[args[0]] += int(args[1])
-		if body_blood[args[0]] > 100:
-			body_blood[args[0]] = 100
-		print("Player's", args[0], "healed to", body_blood[args[0]])
-	else:
-		print("Player is dead, cannot heal")

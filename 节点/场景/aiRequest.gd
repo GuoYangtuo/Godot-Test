@@ -9,7 +9,7 @@ func requestAI(content: String, callback: Callable) -> void:
 			"content": content
 		}
 	],
-	"model": "4.0Ultra"
+	"model": "lite"
 }
 	
 	var headers := ['Authorization: Bearer xJmfFnXWmPqhFqwFdcfu:bJXlfUzleHIpHdfgxqMe']

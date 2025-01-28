@@ -21,7 +21,7 @@ transform = Transform3D(0.879083, -0.225477, 0.419967, 0, 0.881048, 0.473028, -0
 
 [node name="Crosshair" parent="." instance=ExtResource("4_ceota")]
 
-[node name="Alice" parent="." node_paths=PackedStringArray("httpRequest") groups=["npc"] instance=ExtResource("5_flkqv")]
+[node name="npc" parent="." node_paths=PackedStringArray("httpRequest") groups=["npc"] instance=ExtResource("5_flkqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18488, 0)
 httpRequest = NodePath("../HTTPRequest")
 metadata/npcName = ""
